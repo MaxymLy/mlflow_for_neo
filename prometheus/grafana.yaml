@@ -13,6 +13,9 @@ spec:
       values: |
         service:
           type: ClusterIP
+
+        adminUser: admin
+        adminPassword: "admin"
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
