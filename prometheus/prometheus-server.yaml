@@ -1,43 +1,43 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: prometheus
-#   namespace: argocd
-# spec:
-#   project: default
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: default
 
-#   source:
-#     repoURL: https://prometheus-community.github.io/helm-charts
-#     chart: prometheus
-#     targetRevision: 25.3.1
-#     helm:
-#       values: |
-#         alertmanager:
-#           enabled: false
-#         kubeStateMetrics:
-#           enabled: false
-#         nodeExporter:
-#           enabled: false
-#         pushgateway:
-#           enabled: false
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: prometheus
+    targetRevision: 25.3.1
+    helm:
+      values: |
+        alertmanager:
+          enabled: false
+        kubeStateMetrics:
+          enabled: false
+        nodeExporter:
+          enabled: false
+        pushgateway:
+          enabled: false
 
-#         server:
-#           service:
-#             type: ClusterIP
-#             servicePort: 9090
+        server:
+          service:
+            type: ClusterIP
+            servicePort: 9090
 
-#           extraScrapeConfigs: |
-#             - job_name: "pushgateway"
-#               static_configs:
-#                 - targets: ["prometheus-pushgateway.monitoring.svc.cluster.local:9091"]
+          extraScrapeConfigs: |
+            - job_name: "pushgateway"
+              static_configs:
+                - targets: ["prometheus-pushgateway.monitoring.svc.cluster.local:9091"]
 
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: monitoring
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
 
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     syncOptions:
-#       - CreateNamespace=true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
