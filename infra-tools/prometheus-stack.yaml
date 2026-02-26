@@ -55,14 +55,14 @@ spec:
             - name: Prometheus
               type: prometheus
               uid: prometheus              # фіксований UID, щоб дашборди не «ламались» після пересоздань
-              url: http://prometheus-operator-prometheus.infra-tools:9090
+              url: http://prometheus-operator-prometheus.monitoring:9090
               access: proxy
               isDefault: true              # Prometheus залишаємо дефолтним
               
             - name: Loki
               type: loki
               uid: loki                    # фіксований UID для стабільності
-              url: http://loki.infra-tools:3100
+              url: http://loki.monitoring:3100
               access: proxy
               isDefault: false             # Loki не дефолтний, додається як додаткове джерело
         prometheusOperator:
