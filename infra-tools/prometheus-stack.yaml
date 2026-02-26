@@ -62,7 +62,7 @@ spec:
             - name: Loki
               type: loki
               uid: loki                    # фіксований UID для стабільності
-              url: http://loki.infra-tools:3100
+              url: "http://loki.infra-tools:3100"
               access: proxy
               isDefault: false             # Loki не дефолтний, додається як додаткове джерело
         prometheusOperator:
