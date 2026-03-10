@@ -11,7 +11,7 @@ spec:
     path: helm
   destination:
     server: https://kubernetes.default.svc
-    namespace: infra-tools
+    namespace: mlflow
   syncPolicy:
     automated:
       prune: true
