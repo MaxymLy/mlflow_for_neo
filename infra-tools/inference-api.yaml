@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: inference-api
-  namespace: infra-tools
+  namespace: argocd
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: helm
   destination:
     server: https://kubernetes.default.svc
-    namespace: application
+    namespace: infra-tools
   syncPolicy:
     automated:
       prune: true
