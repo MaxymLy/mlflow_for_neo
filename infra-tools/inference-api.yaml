@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:<your-org>/mlflow-inference-api.git
+    repoURL: git@github.com:MaxymLy/mlflow-inference-api.git
     targetRevision: main
     path: helm
   destination:
-    server: <https://kubernetes.default.svc>
+    server: https://kubernetes.default.svc
     namespace: application
   syncPolicy:
     automated:
